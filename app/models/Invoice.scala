@@ -1,15 +1,17 @@
 package models
 
-import play.api.libs.json.Json
+import play.api.libs.json._
+
 
 case class Invoice(
-  id: String,
-  invoiceNumber: String,
-  commodity: String,
-  consumption: Int,
-  totalPrice: BigDecimal,
+                    id: Option[Long],
+                    invoice_number: Option[String],
+                    site_id: String,
+                    commodity: String,
+                    consumption: BigDecimal,
+                    total_price: BigDecimal
                   )
 
 object Invoice {
-  implicit def invoicePlayJsonWrites = Json.writes[Invoice]
+  implicit val format: OFormat[Invoice] = Json.format[Invoice]
 }

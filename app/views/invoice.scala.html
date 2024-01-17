@@ -1,0 +1,34 @@
+@(invoices:Seq[Invoice])
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoices</title>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+
+</head>
+<body>
+<div class="form">
+    <table class="center">
+        <tr>
+            <th>Id</th>
+            <th>Invoice Number</th>
+            <th>Commodity</th>
+            <th>Site Id</th>
+            <th>Consumption</th>
+            <th>Total Price</th>
+        </tr>
+        @for(invoice<-invoices){
+        <tr>
+            <td style="text-align:left">@invoice.id</td>
+            <td style="text-align:left">@invoice.invoice_number</td>
+            <td style="text-align:left">@invoice.commodity</td>
+            <td style="text-align:left">@invoice.site_id</td>
+            <td style="text-align:left">@invoice.consumption</td>
+            <td style="text-align:left">@invoice.total_price</td>
+        </tr>
+        }
+    </table>
+</div>
+</body>
+</html>
